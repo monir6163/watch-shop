@@ -36,7 +36,7 @@ const MyOrders = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            Swal.fire("Dhukkho Jonok!",
+                            Swal.fire("Great!",
                                 "Order Cancel SuccessFull!",
                                 "success"
                             )

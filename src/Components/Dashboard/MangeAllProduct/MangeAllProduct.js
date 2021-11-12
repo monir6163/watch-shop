@@ -31,7 +31,7 @@ const MangeAllProduct = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            Swal.fire("Dhukkho Jonok!",
+                            Swal.fire("Great!",
                                 "Data Delete SuccessFull!",
                                 "success"
                             )
