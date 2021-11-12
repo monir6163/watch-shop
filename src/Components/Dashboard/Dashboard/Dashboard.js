@@ -12,6 +12,7 @@ import logo from "../../../images/logo.png";
 import Review from "../Review/Review";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
 import AdminRoute from "../AdminRoute/AdminRoute";
+import Notfound from "./Notfound/Notfound";
 
 const Dashboard = () => {
     const { logOut, admin } = useAuth();
@@ -53,22 +54,24 @@ const Dashboard = () => {
                         </Offcanvas.Title>
                     </Offcanvas.Header>
                     <Offcanvas.Body className="canvas-body text-left">
-                        <div className="d-flex justify-content-start align-items-center">
-                            <i className="fas fa-shopping-basket me-2"></i>
-                            <NavLink to={`${url}/myorders`}>My Orders</NavLink>
-                        </div>
-                        <br />
-                        <div className="d-flex justify-content-start align-items-center">
-                            <i className="fas fa-comment me-2"></i>
-                            <NavLink to={`${url}/Review`}>
-                                Review
-                            </NavLink>
-                        </div>
-                        <br />
-                        <div className="d-flex justify-content-start align-items-center">
-                            <i className="fas fa-shopping-cart me-2"></i>
-                            <NavLink to={`${url}/payBill`}>Pay Bill</NavLink>
-                        </div>
+                        {!admin && <>
+                            <div className="d-flex justify-content-start align-items-center">
+                                <i className="fas fa-shopping-basket me-2"></i>
+                                <NavLink to={`${url}/myorders`}>My Orders</NavLink>
+                            </div>
+                            <br />
+                            <div className="d-flex justify-content-start align-items-center">
+                                <i className="fas fa-comment me-2"></i>
+                                <NavLink to={`${url}/Review`}>
+                                    Review
+                                </NavLink>
+                            </div>
+                            <br />
+                            <div className="d-flex justify-content-start align-items-center">
+                                <i className="fas fa-shopping-cart me-2"></i>
+                                <NavLink to={`${url}/payBill`}>Pay Bill</NavLink>
+                            </div>
+                        </>}
                         <br />
                         {admin && <>
                             <div className="d-flex justify-content-start align-items-center">
@@ -213,6 +216,9 @@ const Dashboard = () => {
                                     <AdminRoute path={`${path}/manageOrder`}>
                                         <Manageallorder></Manageallorder>
                                     </AdminRoute>
+                                    <Route exact path="*">
+                                        <Notfound></Notfound>
+                                    </Route>
                                 </Switch>
                             </Col>
                         </Row>

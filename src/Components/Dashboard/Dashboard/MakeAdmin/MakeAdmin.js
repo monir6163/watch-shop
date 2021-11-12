@@ -42,6 +42,7 @@ const MakeAdmin = () => {
     const iconuser = <FontAwesomeIcon icon={faEnvelope} />
     const iconsuser = <FontAwesomeIcon icon={faUser} />
     const check = <FontAwesomeIcon icon={faCheckCircle} />
+    console.log(makeadmin);
     return (
         <Container className="mb-5 mt-5" style={{ minHeight: '100vh' }}>
             <div className="col-12 col-md-8 mx-auto">
@@ -71,7 +72,7 @@ const MakeAdmin = () => {
                                         user?.role === 'admin' ? (<h6 className="text-success fw-bolder">
                                             {user?.role} {""} {check}
                                         </h6>) : (<h6 className="text-danger fw-bolder">
-                                            {user?.role}{""} {clock}
+                                            {user?.role}{"basic"} {clock}
                                         </h6>)
                                     }</td>
                                     <td>

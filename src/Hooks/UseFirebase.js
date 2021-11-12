@@ -35,7 +35,7 @@ const UseFirebase = () => {
     // sign up with email password
     function singUp() {
         setIsLoading(true)
-        saveUser(email, name, 'POST');
+        saveUser(email, name);
         return createUserWithEmailAndPassword(auth, email, password);
     }
     // set name and profile image url
@@ -92,18 +92,16 @@ const UseFirebase = () => {
             .then(res => res.json())
             .then(data => setAdmin(data.admin))
     }, [user?.email])
-    console.log(admin);
     // sign out
     function logOut() {
         setIsLoading(true)
         return signOut(auth);
     }
 
-    let role = 'basic';
-    const saveUser = (email, displayName, method) => {
-        const user = { email, displayName, role };
+    const saveUser = (email, displayName) => {
+        const user = { email, displayName };
         fetch('http://localhost:5000/users', {
-            method: method,
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },

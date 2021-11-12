@@ -9,6 +9,7 @@ import AuthProvider from './Context/AuthProvider';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import PlaceOrder from './Components/PlaceOrder/PlaceOrder';
+import NotFound from './Components/NotFound/NotFound';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 
@@ -44,6 +45,9 @@ function App() {
             </Route>
             <Route exact path="/register">
               <Register></Register>
+            </Route>
+            <Route exact path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>
