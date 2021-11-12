@@ -17,7 +17,7 @@ const Login = () => {
     const location = useLocation();
     const emailRedirect = location?.state?.from || "/";
     const googleRedirect = location?.state?.from || "/";
-    const { getEmail, getPassword, signInWithEmail, error, setUser, signinGoogle, passwordReset, setIsLoading } = useAuth();
+    const { getEmail, getPassword, signInWithEmail, error, setUser, signinGoogle, passwordReset, setIsLoading, saveUser } = useAuth();
     const login = (e) => {
         e.preventDefault();
         signInWithEmail()
@@ -42,7 +42,7 @@ const Login = () => {
     const handleGoogleLogin = () => {
         signinGoogle()
             .then(result => {
-                console.log(result)
+                saveUser(result.user.email, result.user.displayName, 'PUT');
                 Swal.fire("Good job!",
                     "Log In SuccessFull!",
                     "success"

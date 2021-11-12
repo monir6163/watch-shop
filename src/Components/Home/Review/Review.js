@@ -1,32 +1,10 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
+import Rating from '../../Shared/Rating/Rating';
 
 
 const Review = (props) => {
     const { name, img, description, rating } = props.review;
-    // rating star 
-    const displayRateIcon = (rate) => {
-        const floorRate = Math.floor(rate);
-        let rateIcon = "";
-
-        for (let i = 0; i < floorRate; i++) {
-            rateIcon += `<i class="bi bi-star-fill"></i>`;
-        }
-
-        if (rate !== floorRate) {
-            rateIcon += `<i class="bi bi-star-half"></i>`;
-        } else {
-            rateIcon += `<i class="bi bi-star"></i>`;
-        }
-
-        if (5 - floorRate > 1) {
-            for (let i = 0; i < 5 - floorRate - 1; i++) {
-                rateIcon += `<i class="bi bi-star"></i>`;
-            }
-        }
-        const ratingIcon = rateIcon.slice(0, -1)
-        return ratingIcon;
-    };
     return (
 
         <Card style={{ minHeight: '250px' }} className=" mx-3 p-3">
@@ -37,13 +15,8 @@ const Review = (props) => {
                 <Card.Title>{name}</Card.Title>
                 <Card.Text>
                     {description}
-                    <div>
-                        {rating}
-                    </div>
-                    {
-                        `${displayRateIcon(rating)}`
-                    }
                 </Card.Text>
+                <Rating rating={rating}></Rating>
             </Card.Body>
         </Card>
     );

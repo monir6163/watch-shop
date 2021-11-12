@@ -14,6 +14,7 @@ const UseFirebase = () => {
     const [photo, setPhoto] = useState("");
     const [password, setPassword] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(false);
     // get name
     function getName(e) {
         setName(e?.target?.value);
@@ -34,6 +35,7 @@ const UseFirebase = () => {
     // sign up with email password
     function singUp() {
         setIsLoading(true)
+        saveUser(email, name, 'POST');
         return createUserWithEmailAndPassword(auth, email, password);
     }
     // set name and profile image url
@@ -84,11 +86,30 @@ const UseFirebase = () => {
         });
         return () => unsubscribe;
     }, []);
-
+    // check admin 
+    useEffect(() => {
+        fetch(`http://localhost:5000/users/${user?.email}`)
+            .then(res => res.json())
+            .then(data => setAdmin(data.admin))
+    }, [user?.email])
+    console.log(admin);
     // sign out
     function logOut() {
         setIsLoading(true)
         return signOut(auth);
+    }
+
+    let role = 'basic';
+    const saveUser = (email, displayName, method) => {
+        const user = { email, displayName, role };
+        fetch('http://localhost:5000/users', {
+            method: method,
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+            .then()
     }
     return {
         signInWithEmail,
@@ -104,7 +125,9 @@ const UseFirebase = () => {
         passwordReset,
         isLoading,
         setNameAndImage,
-        setIsLoading
+        setIsLoading,
+        saveUser,
+        admin
     }
 }
 export default UseFirebase;

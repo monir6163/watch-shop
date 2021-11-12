@@ -10,9 +10,11 @@ import Manageallorder from "./ManageAllOrder/ManageAllOrder";
 import Profile from "./Profile/Profile";
 import logo from "../../../images/logo.png";
 import Review from "../Review/Review";
+import MakeAdmin from "./MakeAdmin/MakeAdmin";
+import AdminRoute from "../AdminRoute/AdminRoute";
 
 const Dashboard = () => {
-    const { logOut } = useAuth();
+    const { logOut, admin } = useAuth();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -52,10 +54,6 @@ const Dashboard = () => {
                     </Offcanvas.Header>
                     <Offcanvas.Body className="canvas-body text-left">
                         <div className="d-flex justify-content-start align-items-center">
-                            <i className="fas fa-user-circle me-2"></i>
-                            <NavLink to={url}>Profile</NavLink>
-                        </div>
-                        <div className="d-flex justify-content-start align-items-center">
                             <i className="fas fa-shopping-basket me-2"></i>
                             <NavLink to={`${url}/myorders`}>My Orders</NavLink>
                         </div>
@@ -72,34 +70,39 @@ const Dashboard = () => {
                             <NavLink to={`${url}/payBill`}>Pay Bill</NavLink>
                         </div>
                         <br />
+                        {admin && <>
+                            <div className="d-flex justify-content-start align-items-center">
+                                <i className="fas fa-user me-2"></i>
+                                <NavLink to={`${url}/makeAdmin`}>
+                                    Make Admin
+                                </NavLink>
+                            </div>
+                            <br />
+                            <div className="d-flex justify-content-start align-items-center">
+                                <i className="fas fa-plus me-2"></i>
+                                <NavLink to={`${url}/addProduct`}>
+                                    Add Product
+                                </NavLink>
+                            </div>
+                            <br />
+                            <div className="d-flex justify-content-start align-items-center">
+                                <i className="fas fa-clock me-2"></i>
+                                <NavLink to={`${url}/manageProduct`}>
+                                    Manage All Products
+                                </NavLink>
+                            </div>
+                            <br />
+                            <div className="d-flex justify-content-start align-items-center">
+                                <i className="fas fa-cannabis me-2"></i>
+                                <NavLink to={`${url}/manageOrder`}>
+                                    Manage All Orders
+                                </NavLink>
+                            </div>
+                        </>}
                         <div className="d-flex justify-content-start align-items-center">
-                            <i className="fas fa-user me-2"></i>
-                            <NavLink to={`${url}/makeAdmin`}>
-                                Make Admin
-                            </NavLink>
+                            <i className="fas fa-user-circle me-2"></i>
+                            <NavLink to={url}>Profile</NavLink>
                         </div>
-                        <br />
-                        <div className="d-flex justify-content-start align-items-center">
-                            <i className="fas fa-plus me-2"></i>
-                            <NavLink to={`${url}/addProduct`}>
-                                Add Product
-                            </NavLink>
-                        </div>
-                        <br />
-                        <div className="d-flex justify-content-start align-items-center">
-                            <i className="fas fa-clock me-2"></i>
-                            <NavLink to={`${url}/manageProduct`}>
-                                Manage All Products
-                            </NavLink>
-                        </div>
-                        <br />
-                        <div className="d-flex justify-content-start align-items-center">
-                            <i className="fas fa-cannabis me-2"></i>
-                            <NavLink to={`${url}/manageOrder`}>
-                                Manage All Orders
-                            </NavLink>
-                        </div>
-                        <hr />
                         <div className="d-flex justify-content-start align-items-center">
                             <i className="fas fa-home me-2"></i>
                             <NavLink to="/home">Back to home</NavLink>
@@ -122,57 +125,59 @@ const Dashboard = () => {
                     <Container fluid>
                         <Row>
                             <Col className="my-col text-left pt-5" lg={2}>
+                                {!admin && <>
+                                    <div className="d-flex justify-content-start align-items-center">
+                                        <i className="fas fa-shopping-basket me-2"></i>
+                                        <NavLink to={`${url}/myorders`}>My Orders</NavLink>
+                                    </div>
+                                    <br />
+                                    <div className="d-flex justify-content-start align-items-center">
+                                        <i className="fas fa-comment me-2"></i>
+                                        <NavLink to={`${url}/Review`}>
+                                            Review
+                                        </NavLink>
+                                    </div>
+                                    <br />
+                                    <div className="d-flex justify-content-start align-items-center">
+                                        <i className="fas fa-shopping-cart me-2"></i>
+                                        <NavLink to={`${url}/payBill`}>
+                                            Pay Bill
+                                        </NavLink>
+                                    </div></>}
+                                {admin && <>
+                                    <div className="d-flex justify-content-start align-items-center">
+                                        <i className="fas fa-user me-2"></i>
+                                        <NavLink to={`${url}/makeAdmin`}>
+                                            Make Admin
+                                        </NavLink>
+                                    </div>
+                                    <br />
+                                    <div className="d-flex justify-content-start align-items-center">
+                                        <i className="fas fa-plus me-2"></i>
+                                        <NavLink to={`${url}/addProduct`}>
+                                            Add Product
+                                        </NavLink>
+                                    </div>
+                                    <br />
+                                    <div className="d-flex justify-content-start align-items-center">
+                                        <i className="fas fa-clock me-2"></i>
+                                        <NavLink to={`${url}/manageProduct`}>
+                                            Manage All Products
+                                        </NavLink>
+                                    </div>
+                                    <br />
+                                    <div className="d-flex justify-content-start align-items-center">
+                                        <i className="fas fa-cannabis me-2"></i>
+                                        <NavLink to={`${url}/manageOrder`}>
+                                            Manage All Orders
+                                        </NavLink>
+                                    </div>
+                                </>}
+                                <hr />
                                 <div className="d-flex justify-content-start align-items-center">
                                     <i className="fas fa-user-circle me-2"></i>
                                     <NavLink to={url}>Profile</NavLink>
                                 </div>
-                                <div className="d-flex justify-content-start align-items-center">
-                                    <i className="fas fa-shopping-basket me-2"></i>
-                                    <NavLink to={`${url}/myorders`}>My Orders</NavLink>
-                                </div>
-                                <br />
-                                <div className="d-flex justify-content-start align-items-center">
-                                    <i className="fas fa-comment me-2"></i>
-                                    <NavLink to={`${url}/Review`}>
-                                        Review
-                                    </NavLink>
-                                </div>
-                                <br />
-                                <div className="d-flex justify-content-start align-items-center">
-                                    <i className="fas fa-shopping-cart me-2"></i>
-                                    <NavLink to={`${url}/payBill`}>
-                                        Pay Bill
-                                    </NavLink>
-                                </div>
-                                <hr />
-                                <div className="d-flex justify-content-start align-items-center">
-                                    <i className="fas fa-user me-2"></i>
-                                    <NavLink to={`${url}/makeAdmin`}>
-                                        Make Admin
-                                    </NavLink>
-                                </div>
-                                <br />
-                                <div className="d-flex justify-content-start align-items-center">
-                                    <i className="fas fa-plus me-2"></i>
-                                    <NavLink to={`${url}/addProduct`}>
-                                        Add Product
-                                    </NavLink>
-                                </div>
-                                <br />
-                                <div className="d-flex justify-content-start align-items-center">
-                                    <i className="fas fa-clock me-2"></i>
-                                    <NavLink to={`${url}/manageProduct`}>
-                                        Manage All Products
-                                    </NavLink>
-                                </div>
-                                <br />
-                                <div className="d-flex justify-content-start align-items-center">
-                                    <i className="fas fa-cannabis me-2"></i>
-                                    <NavLink to={`${url}/manageOrder`}>
-                                        Manage All Orders
-                                    </NavLink>
-                                </div>
-                                <hr />
                                 <div className="d-flex justify-content-start align-items-center">
                                     <i className="fas fa-home me-2"></i>
                                     <NavLink to="/">Back to home</NavLink>
@@ -196,18 +201,18 @@ const Dashboard = () => {
                                     <Route path={`${path}/payBill`}>
 
                                     </Route>
-                                    <Route path={`${path}/makeAdmin`}>
-
-                                    </Route>
-                                    <Route path={`${path}/addProduct`}>
+                                    <AdminRoute path={`${path}/makeAdmin`}>
+                                        <MakeAdmin></MakeAdmin>
+                                    </AdminRoute>
+                                    <AdminRoute path={`${path}/addProduct`}>
                                         <AddProduct></AddProduct>
-                                    </Route>
-                                    <Route path={`${path}/manageProduct`}>
+                                    </AdminRoute>
+                                    <AdminRoute path={`${path}/manageProduct`}>
                                         <MangeAllProduct></MangeAllProduct>
-                                    </Route>
-                                    <Route path={`${path}/manageOrder`}>
+                                    </AdminRoute>
+                                    <AdminRoute path={`${path}/manageOrder`}>
                                         <Manageallorder></Manageallorder>
-                                    </Route>
+                                    </AdminRoute>
                                 </Switch>
                             </Col>
                         </Row>

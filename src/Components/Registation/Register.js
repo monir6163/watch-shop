@@ -13,7 +13,7 @@ const Register = () => {
     useEffect(() => {
         document.title = 'Register : Your Best Watch Shop'
     }, []);
-    const { signinGoogle, getPhoto, getName, singUp, getEmail, getPassword, setNameAndImage, setIsLoading } = useAuth();
+    const { signinGoogle, getPhoto, getName, singUp, getEmail, getPassword, setNameAndImage, setIsLoading, saveUser } = useAuth();
     const history = useHistory();
     const location = useLocation();
     const redirect = location?.state?.from || "/";
@@ -44,6 +44,7 @@ const Register = () => {
     const handleGooglereg = () => {
         signinGoogle()
             .then(result => {
+                saveUser(result.user.email, result.user.displayName, 'PUT');
                 Swal.fire("Good job!",
                     "Log In SuccessFull!",
                     "success"
