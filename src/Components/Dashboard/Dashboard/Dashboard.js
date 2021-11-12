@@ -13,6 +13,7 @@ import Review from "../Review/Review";
 import MakeAdmin from "./MakeAdmin/MakeAdmin";
 import AdminRoute from "../AdminRoute/AdminRoute";
 import Notfound from "./Notfound/Notfound";
+import Paybill from "./Paybill/Paybill";
 
 const Dashboard = () => {
     const { logOut, admin } = useAuth();
@@ -203,7 +204,7 @@ const Dashboard = () => {
                                             <Review></Review>
                                         </Route>
                                         <Route path={`${path}/payBill`}>
-
+                                            <Paybill></Paybill>
                                         </Route>
                                     </>
                                     }
