@@ -4,6 +4,7 @@ import UseProducts from '../../Hooks/UseProducts';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
 import Banner from './Banner/Banner';
+import Contact from './Contact/Contact';
 import Deliveryinfo from './Deliveryinfo/Deliveryinfo';
 import Fetured from './Fetured/Fetured';
 import LatestProduct from './LatestProduct/LatestProduct';
@@ -33,6 +34,7 @@ const Home = () => {
             <LatestProduct></LatestProduct>
             <Fetured></Fetured>
             <Reviews></Reviews>
+            <Contact></Contact>
             <Footer></Footer>
         </>
     );

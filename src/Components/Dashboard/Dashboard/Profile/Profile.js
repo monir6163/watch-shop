@@ -7,7 +7,6 @@ const Profile = () => {
         document.title = "Profile | Your Best Watch Online Shop";
     }, []);
     const { user } = useAuth();
-    console.log(user);
     return (
         <div className="d-flex justify-content-center align-items-center text-center" style={{ minHeight: '75vh' }}>
             <Card className="shadow-lg mb-5 py-3 px-5">

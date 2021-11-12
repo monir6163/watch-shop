@@ -42,7 +42,6 @@ const MakeAdmin = () => {
     const iconuser = <FontAwesomeIcon icon={faEnvelope} />
     const iconsuser = <FontAwesomeIcon icon={faUser} />
     const check = <FontAwesomeIcon icon={faCheckCircle} />
-    console.log(makeadmin);
     return (
         <Container className="mb-5 mt-5" style={{ minHeight: '100vh' }}>
             <div className="col-12 col-md-8 mx-auto">

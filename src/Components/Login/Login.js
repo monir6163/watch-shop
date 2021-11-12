@@ -42,7 +42,6 @@ const Login = () => {
     const handleGoogleLogin = () => {
         signinGoogle()
             .then(result => {
-                console.log(result)
                 saveUser(result.user.email, result.user.displayName, 'PUT');
                 Swal.fire("Good job!",
                     "Log In SuccessFull!",
