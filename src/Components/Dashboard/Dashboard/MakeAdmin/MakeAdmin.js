@@ -12,12 +12,12 @@ const MakeAdmin = () => {
         document.title = "Make Admin | Your Best Watch Online Shop";
     }, []);
     useEffect(() => {
-        fetch('http://localhost:5000/users/')
+        fetch('https://lit-wildwood-13814.herokuapp.com/users/')
             .then((res) => res.json())
             .then((data) => setMakeAdmin(data));
     }, [status]);
     const handleUpdate = (id) => {
-        const url = `http://localhost:5000/users/${id}`;
+        const url = `https://lit-wildwood-13814.herokuapp.com/users/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

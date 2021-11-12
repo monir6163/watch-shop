@@ -7,7 +7,7 @@ import Header from '../Shared/Header/Header';
 const AllProducts = () => {
     const [allProduct, setAllProducts] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('https://lit-wildwood-13814.herokuapp.com/products')
             .then(res => res.json())
             .then(data => setAllProducts(data))
     }, []);

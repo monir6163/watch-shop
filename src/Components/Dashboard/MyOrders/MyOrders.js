@@ -14,7 +14,7 @@ const MyOrders = () => {
         document.title = "My Orders | Your Best Online Watch Shop";
     }, []);
     useEffect(() => {
-        fetch(`http://localhost:5000/myorders/${user?.email}`)
+        fetch(`https://lit-wildwood-13814.herokuapp.com/myorders/${user?.email}`)
             .then((res) => res.json())
             .then((data) => setMyOrders(data));
     }, [user?.email]);
@@ -29,7 +29,7 @@ const MyOrders = () => {
             confirmButtonText: 'Yes, Cancel Order!'
         }).then((result) => {
             if (result.isConfirmed) {
-                const url = `http://localhost:5000/deleteorder/${id}`;
+                const url = `https://lit-wildwood-13814.herokuapp.com/deleteorder/${id}`;
                 fetch(url, {
                     method: 'DELETE'
                 })

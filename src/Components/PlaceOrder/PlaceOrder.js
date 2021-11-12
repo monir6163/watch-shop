@@ -17,7 +17,7 @@ const PlaceOrder = () => {
     const { orderID } = useParams();
     const [orders, setOrders] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/orders/${orderID}`)
+        fetch(`https://lit-wildwood-13814.herokuapp.com/orders/${orderID}`)
             .then(res => res.json())
             .then(data => {
                 setOrders(data)
@@ -29,7 +29,7 @@ const PlaceOrder = () => {
         data.status = 'pending';
         data.email = user?.email;
         data.order = orders;
-        fetch('http://localhost:5000/placeorders', {
+        fetch('https://lit-wildwood-13814.herokuapp.com/placeorders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -45,7 +45,7 @@ const PlaceOrder = () => {
                     )
                     reset();
                 }
-                history.push('/dashboard/myorders')
+                history.push('/dashboard')
             })
             .catch((error) => {
                 Swal.fire(

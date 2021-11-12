@@ -9,7 +9,7 @@ const MangeAllProduct = () => {
         document.title = "Manage All Products | Your Best Online Watch shop";
     }, []);
     useEffect(() => {
-        fetch('http://localhost:5000/products/')
+        fetch('https://lit-wildwood-13814.herokuapp.com/products/')
             .then((res) => res.json())
             .then((data) => setAllProducts(data));
     }, []);
@@ -24,7 +24,7 @@ const MangeAllProduct = () => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                const url = `http://localhost:5000/deleteproduct/${id}`;
+                const url = `https://lit-wildwood-13814.herokuapp.com/deleteproduct/${id}`;
                 fetch(url, {
                     method: 'DELETE'
                 })

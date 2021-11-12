@@ -12,12 +12,12 @@ const Manageallorder = () => {
         document.title = "Manage All Orders | Your Best Watch Online Shop";
     }, []);
     useEffect(() => {
-        fetch('http://localhost:5000/placeorders/')
+        fetch('https://lit-wildwood-13814.herokuapp.com/placeorders/')
             .then((res) => res.json())
             .then((data) => setAllOrders(data));
     }, [status]);
     const handleUpdate = (id) => {
-        const url = `http://localhost:5000/placeorders/${id}`;
+        const url = `https://lit-wildwood-13814.herokuapp.com/placeorders/${id}`;
         fetch(url, {
             method: 'PUT',
             headers: {

@@ -14,24 +14,24 @@ const Footer = () => {
                     <div className="col-12 col-md-6 col-lg-3 mb-4 text-center">
                         <img style={{ maxWidth: "150px", width: "100%" }} className='mb-3' src={logo} alt="wrish" />
                         <p className="text-justify abril-font">
-                            Travel by water often provided more comfort and speed than land-travel, at least until the advent of a network of railways in the 19th century.
+                            WatchTime’s watch reviews section. WatchTime has one of the best watch test selection worldwide. Watch reviews are published frequently by our staff.
                         </p>
                     </div>
                     <div className="col-12 col-md-6 col-lg-3 mb-4 text-center abril-font">
-                        <h4>Top Package</h4>
-                        <span>Atlantis the Palm Dubai</span>
+                        <h4>Top Products</h4>
+                        <span>Kenneth Cole Gift Set</span>
                         <br />
-                        <span>Premier Sukhumvit Bangkok</span>
+                        <span>Bering Rose Gold Steel Mesh</span>
                         <br />
-                        <span>Trisara(SHA Plus+)</span>
+                        <span>Xorus Youth Black Red</span>
                         <br />
-                        <span>Craftsman Bangkok</span>
+                        <span>TW Steel Canteen</span>
                     </div>
                     <div className="col-12 col-md-6 col-lg-3 mb-4 text-center abril-font">
                         <h4>Quic Links</h4>
                         <Nav.Link as={NavLink} to="/home" className="fs-6 fw-bold px-3 text-white">Home</Nav.Link>
                         <Nav.Link as={NavLink} to="/about" className="fs-6 fw-bold px-3 text-white">About</Nav.Link>
-                        <Nav.Link as={NavLink} to="/explore" className="fs-6 fw-bold px-3 text-white">Explore</Nav.Link>
+                        <Nav.Link as={NavLink} to="/Products" className="fs-6 fw-bold px-3 text-white">Products</Nav.Link>
                     </div>
                     <div className="col-12 col-md-6 col-lg-3 mb-4 text-center abril-font">
                         <h4>Follow us</h4>

@@ -195,15 +195,18 @@ const Dashboard = () => {
                                     <Route exact path={path}>
                                         <Profile></Profile>
                                     </Route>
-                                    <Route path={`${path}/myorders`}>
-                                        <MyOrders></MyOrders>
-                                    </Route>
-                                    <Route path={`${path}/Review`}>
-                                        <Review></Review>
-                                    </Route>
-                                    <Route path={`${path}/payBill`}>
+                                    {!admin && <>
+                                        <Route path={`${path}/myorders`}>
+                                            <MyOrders></MyOrders>
+                                        </Route>
+                                        <Route path={`${path}/Review`}>
+                                            <Review></Review>
+                                        </Route>
+                                        <Route path={`${path}/payBill`}>
 
-                                    </Route>
+                                        </Route>
+                                    </>
+                                    }
                                     <AdminRoute path={`${path}/makeAdmin`}>
                                         <MakeAdmin></MakeAdmin>
                                     </AdminRoute>
