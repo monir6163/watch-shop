@@ -60,13 +60,14 @@ const MyOrders = () => {
                 <h3 className="text-center">My Order ({myOrders.length})</h3>
             </div>
             <Row>
-                <Col xs={12} md={10} className="mx-auto">
+                <Col xs={12} md={12} className="mx-auto">
                     <Table striped bordered hover responsive>
                         <thead className="text-center">
                             <tr>
                                 <th>Image</th>
                                 <th>Product Name</th>
-                                <th>PlaceOrder Name</th>
+                                <th>Price</th>
+                                <th>Order By</th>
                                 <th>Order Status</th>
                                 <th>Order Cancel</th>
                             </tr>
@@ -76,6 +77,7 @@ const MyOrders = () => {
                                 <tr>
                                     <td><img style={{ width: '50px', height: '50px', borderRadius: '100%' }} src={orders?.order?.img} alt="order" /></td>
                                     <td><span className="fw-bold text-muted">{orders?.order?.title}</span></td>
+                                    <td><span className="fw-bold text-muted">${orders?.order?.price}</span></td>
                                     <td><span className="fw-bold text-muted">{iconuser}{" "}Order By:{" "}{orders?.name}</span></td>
                                     <td>{
                                         orders?.status === 'shipped' ? (<h6 className="text-success fw-bolder">

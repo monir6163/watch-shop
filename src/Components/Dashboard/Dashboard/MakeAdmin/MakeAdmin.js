@@ -51,7 +51,7 @@ const MakeAdmin = () => {
                 <h3 className="text-center">All Users ({makeadmin.length})</h3>
             </div>
             <Row>
-                <Col xs={12} md={10} className="mx-auto">
+                <Col xs={12} md={12} className="mx-auto">
                     <Table striped bordered hover responsive>
                         <thead className="text-center">
                             <tr>

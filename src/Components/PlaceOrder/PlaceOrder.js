@@ -45,7 +45,7 @@ const PlaceOrder = () => {
                     )
                     reset();
                 }
-                history.push('/dashboard')
+                history.push('/dashboard/myorders')
             })
             .catch((error) => {
                 Swal.fire(

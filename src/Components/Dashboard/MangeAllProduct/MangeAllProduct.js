@@ -52,12 +52,13 @@ const MangeAllProduct = () => {
                 <h3 className="text-center">All Product ({allproducts.length})</h3>
             </div>
             <Row>
-                <Col xs={12} md={10} className="mx-auto">
+                <Col xs={12} md={12} className="mx-auto">
                     <Table striped bordered hover responsive>
                         <thead className="text-center">
                             <tr>
                                 <th>Image</th>
                                 <th>Product Name</th>
+                                <th>Price</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -66,6 +67,7 @@ const MangeAllProduct = () => {
                                 <tr>
                                     <td><img style={{ width: '50px', height: '50px', borderRadius: '100%' }} src={products?.img} alt="order" /></td>
                                     <td><span className="fw-bold text-muted">{products?.title}</span></td>
+                                    <td><span className="fw-bold text-muted">${products?.price}</span></td>
                                     <td>
                                         <Button onClick={() => handleDelete(products._id)}
                                             className="btn-light-card fw-bold border-0"

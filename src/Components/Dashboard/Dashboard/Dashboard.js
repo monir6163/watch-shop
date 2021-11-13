@@ -196,17 +196,22 @@ const Dashboard = () => {
                                     <Route exact path={path}>
                                         <Profile></Profile>
                                     </Route>
-                                    {!admin && <>
-                                        <Route path={`${path}/myorders`}>
-                                            <MyOrders></MyOrders>
-                                        </Route>
-                                        <Route path={`${path}/Review`}>
-                                            <Review></Review>
-                                        </Route>
-                                        <Route path={`${path}/payBill`}>
-                                            <Paybill></Paybill>
-                                        </Route>
-                                    </>
+                                    {!admin && (
+                                        <Switch>
+                                            <Route path={`${path}/myorders`}>
+                                                <MyOrders></MyOrders>
+                                            </Route>
+                                            <Route path={`${path}/Review`}>
+                                                <Review></Review>
+                                            </Route>
+                                            <Route path={`${path}/payBill`}>
+                                                <Paybill></Paybill>
+                                            </Route>
+                                            <Route exact path="*">
+                                                <Notfound></Notfound>
+                                            </Route>
+                                        </Switch>
+                                    )
                                     }
                                     <AdminRoute path={`${path}/makeAdmin`}>
                                         <MakeAdmin></MakeAdmin>
