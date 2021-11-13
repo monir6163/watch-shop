@@ -30,7 +30,7 @@ const Register = () => {
                 )
                 setTimeout(() => {
                     history.push(redirect);
-                }, 5000)
+                }, 3000)
             })
             .catch((error) => {
                 Swal.fire(
@@ -143,7 +143,7 @@ const Register = () => {
                                 </Button>
                             </Form>
                             <NavLink className="text-decoration-none" to="/login">
-                                <p className="text-center mt-3 text-white fw-bolder"> Alreay Account? Please Login!</p>
+                                <p className="text-center mt-3 fw-bolder"> Alreay Account? Please Login!</p>
                             </NavLink>
                             <div className="mt-3 text-center fs-4 fw-bolder text-white">---Or---</div>
                             <p className="text-center text-white">Register With Google</p>

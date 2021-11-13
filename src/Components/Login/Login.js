@@ -134,7 +134,7 @@ const Login = () => {
                             </Button>
                         </Form>
                         <NavLink className="text-decoration-none" to="/register">
-                            <p className="text-center mt-3 text-white fw-bolder">New Member? Please Create An Account!</p>
+                            <p className="text-center mt-3 fw-bolder">New Member? Please Create An Account!</p>
                         </NavLink>
                         <div className="mt-3 text-center fs-4 fw-bolder text-white">---Or---</div>
                         <p className="text-center text-white">Login With Google</p>

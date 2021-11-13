@@ -13,10 +13,10 @@ const SingleProduct = (props) => {
                 </div>
                 <Card.Body>
                     <div className="overflow-hidden text-center">
-                        <Card.Title>{title}</Card.Title>
+                        <Card.Title>{title.slice(0, 27)}</Card.Title>
                         <Card.Title>${price}</Card.Title>
                         <Card.Text>
-                            {description}
+                            {description.slice(0, 78)}
                         </Card.Text>
                     </div>
                 </Card.Body>

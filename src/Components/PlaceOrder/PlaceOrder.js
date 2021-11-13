@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
 import useAuth from '../../Hooks/UseAuth';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
+import ScrollToTop from '../Shared/Scroll/Scroll';
 
 const PlaceOrder = () => {
     useEffect(() => {
@@ -69,6 +70,7 @@ const PlaceOrder = () => {
     }
     return (
         <>
+            <ScrollToTop></ScrollToTop>
             <Header></Header>
             <section>
                 <div className="container mt-5 mb-5">

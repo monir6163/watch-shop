@@ -45,7 +45,7 @@ const Dashboard = () => {
                 </div>
 
                 <Offcanvas
-                    className="d-none handle-canvas w-50"
+                    className="d-none handle-canvas w-75"
                     show={show}
                     onHide={handleClose}
                 >

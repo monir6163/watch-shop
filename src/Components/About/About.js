@@ -5,6 +5,7 @@ import about from '../../images/about.png';
 import Reviews from '../Home/Review/Reviews/Reviews';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
+import ScrollToTop from '../Shared/Scroll/Scroll';
 
 const About = () => {
     useEffect(() => {
@@ -12,6 +13,7 @@ const About = () => {
     }, []);
     return (
         <>
+            <ScrollToTop></ScrollToTop>
             <Header></Header>
             <section className="mt-5 mb-3" data-aos="fade-up"
                 data-aos-duration="1000">

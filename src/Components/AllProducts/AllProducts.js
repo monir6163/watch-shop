@@ -3,6 +3,7 @@ import { Row, Spinner } from 'react-bootstrap';
 import SingleProduct from '../Home/LatestProduct/SingleProduct/SingleProduct';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
+import ScrollToTop from '../Shared/Scroll/Scroll';
 
 const AllProducts = () => {
     const [allProduct, setAllProducts] = useState([]);
@@ -16,6 +17,7 @@ const AllProducts = () => {
     }, []);
     return (
         <>
+            <ScrollToTop></ScrollToTop>
             <Header></Header>
             <section className="mb-3 mt-3" data-aos="fade-up"
                 data-aos-duration="1000">

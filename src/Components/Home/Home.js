@@ -3,6 +3,7 @@ import { Spinner } from 'react-bootstrap';
 import UseProducts from '../../Hooks/UseProducts';
 import Footer from '../Shared/Footer/Footer';
 import Header from '../Shared/Header/Header';
+import ScrollToTop from '../Shared/Scroll/Scroll';
 import Banner from './Banner/Banner';
 import Contact from './Contact/Contact';
 import Deliveryinfo from './Deliveryinfo/Deliveryinfo';
@@ -26,6 +27,7 @@ const Home = () => {
     }
     return (
         <>
+            <ScrollToTop></ScrollToTop>
             <Header></Header>
             <Banner></Banner>
             <Deliveryinfo></Deliveryinfo>
