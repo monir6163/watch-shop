@@ -17,26 +17,38 @@ const MakeAdmin = () => {
             .then((data) => setMakeAdmin(data));
     }, [status]);
     const handleUpdate = (id) => {
-        const url = `https://lit-wildwood-13814.herokuapp.com/users/${id}`;
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(makeadmin)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You Make This User Form Admin!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Make Admin it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const url = `https://lit-wildwood-13814.herokuapp.com/users/${id}`;
+                fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(makeadmin)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.modifiedCount > 0) {
+                            setStatus(!status)
+                            Swal.fire("WoW!",
+                                "Make Admin SuccessFull!",
+                                "success"
+                            )
+                        } else {
+                            setStatus(false)
+                        }
+                    })
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    setStatus(!status)
-                    Swal.fire("WoW!",
-                        "Make Admin SuccessFull!",
-                        "success"
-                    )
-                } else {
-                    setStatus(false)
-                }
-            })
     }
     const clock = <FontAwesomeIcon icon={faClock} />
     const iconuser = <FontAwesomeIcon icon={faEnvelope} />

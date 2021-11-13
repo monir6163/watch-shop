@@ -3,7 +3,8 @@ import { Container, Form, Row, Button } from 'react-bootstrap';
 
 const Contact = () => {
     return (
-        <section className="contact-container py-5" data-aos="fade-up">
+        <section className="contact-container py-5" data-aos="fade-up"
+            data-aos-duration="1000">
             <Container>
                 <Row>
                     <div className="col-12 col-md-8 mx-auto">

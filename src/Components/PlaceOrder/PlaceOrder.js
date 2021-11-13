@@ -26,34 +26,46 @@ const PlaceOrder = () => {
     const { register, handleSubmit, reset } = useForm();
     const history = useHistory();
     const onSubmit = (data) => {
-        data.status = 'pending';
-        data.email = user?.email;
-        data.order = orders;
-        fetch('https://lit-wildwood-13814.herokuapp.com/placeorders', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You Sure Place Order!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Order it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                data.status = 'pending';
+                data.email = user?.email;
+                data.order = orders;
+                fetch('https://lit-wildwood-13814.herokuapp.com/placeorders', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
 
-            },
-            body: JSON.stringify(data)
+                    },
+                    body: JSON.stringify(data)
+                })
+                    .then(res => {
+                        if (res) {
+                            Swal.fire("WoW!",
+                                "OrderPlace SuccessFull!",
+                                "success"
+                            )
+                            reset();
+                        }
+                        history.push('/dashboard/myorders')
+                    })
+                    .catch((error) => {
+                        Swal.fire(
+                            "Something went wrong!",
+                            `${error.message}`,
+                            "error"
+                        )
+                    })
+            }
         })
-            .then(res => {
-                if (res) {
-                    Swal.fire("WoW!",
-                        "OrderPlace SuccessFull!",
-                        "success"
-                    )
-                    reset();
-                }
-                history.push('/dashboard/myorders')
-            })
-            .catch((error) => {
-                Swal.fire(
-                    "Something went wrong!",
-                    `${error.message}`,
-                    "error"
-                )
-            })
     }
     return (
         <>

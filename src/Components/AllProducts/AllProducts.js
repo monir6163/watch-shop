@@ -17,7 +17,8 @@ const AllProducts = () => {
     return (
         <>
             <Header></Header>
-            <section className="mb-3 mt-3">
+            <section className="mb-3 mt-3" data-aos="fade-up"
+                data-aos-duration="1000">
                 <div className="container">
                     <h2 className="text-uppercase text-center abril-font">Latest Products</h2>
                     {allProduct.length === 0 ? <div style={{ minHeight: '50vh' }} className="d-flex justify-content-center align-items-center">

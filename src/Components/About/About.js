@@ -14,12 +14,11 @@ const About = () => {
         <>
             <Header></Header>
             <section className="mt-5 mb-3" data-aos="fade-up"
-                data-aos-duration="2000">
+                data-aos-duration="1000">
                 <Container>
                     <h2 className="text-uppercase text-center abril-font mb-4">About Us</h2>
                     <Row>
-                        <Col xs={12} md={6} className="d-flex align-items-center justify-content-center" data-aos="fade-left"
-                            data-aos-duration="2000">
+                        <Col xs={12} md={6} className="d-flex align-items-center justify-content-center">
                             <div className="about-text">
                                 <h2>UK PREMIER STORE
                                     FOR WRIST WATCHES</h2>
@@ -29,8 +28,7 @@ const About = () => {
                                 </Link>
                             </div>
                         </Col>
-                        <Col xs={12} md={6} data-aos="fade-right"
-                            data-aos-duration="2000">
+                        <Col xs={12} md={6}>
                             <div>
                                 <img src={about} className="img-fluid" alt="clock" />
                             </div>

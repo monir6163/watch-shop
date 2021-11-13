@@ -1,24 +1,11 @@
 .banner-container {
-    background-image: url('../../../images/banner.jpg');
+    background-image: linear-gradient(rgba(0,0,0,.5), rgba(0,0,0,.5)),url('../../../images/banner.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    position: relative;
-    height: auto;
-    min-height: 85vh;
     width: 100%;
-}
-.overly {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.2);
-}
-.banner-text {
-    position: absolute;
-    top: 45%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    min-height: 100vh !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

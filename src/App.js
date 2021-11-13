@@ -15,7 +15,7 @@ import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
 
 function App() {
   AOS.init({
-    delay: 300,
+    delay: 200,
   })
   return (
     <div className="App">

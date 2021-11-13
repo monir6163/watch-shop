@@ -17,26 +17,38 @@ const Manageallorder = () => {
             .then((data) => setAllOrders(data));
     }, [status]);
     const handleUpdate = (id) => {
-        const url = `https://lit-wildwood-13814.herokuapp.com/placeorders/${id}`;
-        fetch(url, {
-            method: 'PUT',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(allOrders)
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You Shipped Order!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, Order Shipped!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                const url = `https://lit-wildwood-13814.herokuapp.com/placeorders/${id}`;
+                fetch(url, {
+                    method: 'PUT',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(allOrders)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.modifiedCount > 0) {
+                            setStatus(!status)
+                            Swal.fire("WoW!",
+                                "Order Shift SuccessFull!",
+                                "success"
+                            )
+                        } else {
+                            setStatus(false)
+                        }
+                    })
+            }
         })
-            .then(res => res.json())
-            .then(data => {
-                if (data.modifiedCount > 0) {
-                    setStatus(!status)
-                    Swal.fire("WoW!",
-                        "Order Shift SuccessFull!",
-                        "success"
-                    )
-                } else {
-                    setStatus(false)
-                }
-            })
     }
     const clock = <FontAwesomeIcon icon={faClock} />
     const iconuser = <FontAwesomeIcon icon={faUser} />

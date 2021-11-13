@@ -5,7 +5,7 @@ import './ShopBrand.css';
 const ShopBrand = () => {
     return (
         <section className="mb-3" data-aos="fade-up"
-            data-aos-duration="2000">
+            data-aos-duration="1000">
             <div className="container">
                 <h2 className="text-uppercase text-center abril-font">Shop By Brand</h2>
                 <div className="row mt-3">

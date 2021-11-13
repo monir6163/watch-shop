@@ -45,7 +45,7 @@ const Reviews = () => {
     };
     return (
         <section className="my-5" data-aos="fade-up"
-            data-aos-duration="2000">
+            data-aos-duration="1000">
             <div className="container">
                 <h2 className="text-uppercase text-center abril-font mb-4">Client Review</h2>
                 <Slider {...settings}>
