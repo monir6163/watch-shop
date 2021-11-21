@@ -21,7 +21,7 @@ const MyOrders = () => {
     const handleDelete = (id) => {
         Swal.fire({
             title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            text: "You won't be able to Cancel this!",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -87,7 +87,7 @@ const MyOrders = () => {
                                         </h6>)
                                     }</td>
                                     <td>
-                                        <Button onClick={() => handleDelete(orders._id)}
+                                        <Button variant="danger" onClick={() => handleDelete(orders._id)}
                                             className="btn-light-card fw-bold border-0"
                                         >
                                             Cancel Order

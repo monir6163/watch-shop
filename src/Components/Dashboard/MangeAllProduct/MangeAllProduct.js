@@ -69,7 +69,7 @@ const MangeAllProduct = () => {
                                     <td><span className="fw-bold text-muted">{products?.title}</span></td>
                                     <td><span className="fw-bold text-muted">${products?.price}</span></td>
                                     <td>
-                                        <Button onClick={() => handleDelete(products._id)}
+                                        <Button variant="danger" onClick={() => handleDelete(products._id)}
                                             className="btn-light-card fw-bold border-0"
                                         >
                                             Delete Product
