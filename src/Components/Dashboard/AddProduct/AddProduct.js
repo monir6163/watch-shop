@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { Col, Form, Row, Button } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
@@ -8,15 +8,20 @@ const AddProduct = () => {
     useEffect(() => {
         document.title = 'AddProduct : Your Best Online Watch Shop'
     }, []);
-    const { register, handleSubmit, reset } = useForm();
-    const onSubmit = (data) => {
-        fetch('https://lit-wildwood-13814.herokuapp.com/products', {
+    const { handleSubmit, reset } = useForm();
+    const [title, setTilte] = useState("");
+    const [price, setPrice] = useState("");
+    const [description, setDescription] = useState("");
+    const [img, setFile] = useState(null);
+    const onSubmit = (e) => {
+        const formData = new FormData()
+        formData.append('title', title);
+        formData.append('price', price);
+        formData.append('img', img);
+        formData.append('description', description);
+        fetch('http://localhost:5000/products', {
             method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-
-            },
-            body: JSON.stringify(data)
+            body: formData
         })
             .then(res => {
                 if (res) {
@@ -24,7 +29,7 @@ const AddProduct = () => {
                         "Product Added SuccessFull!",
                         "success"
                     )
-                    reset();
+                    reset()
                 }
             })
             .catch((error) => {
@@ -46,7 +51,9 @@ const AddProduct = () => {
                             <Form.Control
                                 className="text-secondary fw-semi-bold"
                                 placeholder="Casio Watch"
-                                {...register("title", { required: true })}
+                                onChange={e => setTilte(e.target.value)}
+                                name="title"
+                                required
                             />
                         </Form.Group>
                     </Row>
@@ -55,22 +62,24 @@ const AddProduct = () => {
                             <Form.Label>Price <span style={{ color: 'red' }}>*</span></Form.Label>
                             <Form.Control
                                 placeholder="500"
-                                type="text"
+                                type="number"
                                 className="text-secondary fw-semi-bold"
-
-                                {...register("price", { required: true })}
+                                onChange={e => setPrice(e.target.value)}
+                                name="price"
+                                required
                             />
                         </Form.Group>
                     </Row>
                     <Row className="mb-3">
-                        <Form.Group as={Col} controlId="formGridEmail">
-                            <Form.Label>Photo Url <span style={{ color: 'red' }}>*</span></Form.Label>
+                        <Form.Group as={Col} controlId="formGridphoto">
+                            <Form.Label>Upload Photo <span style={{ color: 'red' }}>*</span></Form.Label>
                             <Form.Control
-                                placeholder="https://i.ibb.co/dGDkr4v/1.jpg"
-                                type="text"
+                                onChange={e => setFile(e.target.files[0])}
+                                name="img"
+                                accept="image/*"
+                                required
+                                type="file"
                                 className="text-secondary fw-semi-bold"
-
-                                {...register("img", { required: true })}
                             />
                         </Form.Group>
                     </Row>
@@ -79,7 +88,9 @@ const AddProduct = () => {
                             <Form.Label>Decription <span style={{ color: 'red' }}>*</span></Form.Label>
                             <Form.Control as="textarea" rows={3}
                                 placeholder="Looking awesome genuine branded wristwatch."
-                                {...register("description", { required: true })}
+                                onChange={e => setDescription(e.target.value)}
+                                name="description"
+                                required
                             />
                         </Form.Group>
                     </Row>

@@ -65,7 +65,7 @@ const MangeAllProduct = () => {
                         {
                             allproducts.map(products => <tbody className="text-center" key={products._id}>
                                 <tr>
-                                    <td><img style={{ width: '50px', height: '50px', borderRadius: '100%' }} src={products?.img} alt="order" /></td>
+                                    <td><img style={{ width: '50px', height: '50px', borderRadius: '100%' }} src={`data:image/*;base64,${products?.img}`} alt="order" /></td>
                                     <td><span className="fw-bold text-muted">{products?.title}</span></td>
                                     <td><span className="fw-bold text-muted">${products?.price}</span></td>
                                     <td>

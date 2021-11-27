@@ -9,7 +9,7 @@ const SingleProduct = (props) => {
         <Col>
             <Card className="h-100 overflow-hidden card-border">
                 <div className="overflow-hidden">
-                    <Card.Img variant="top" src={img} id="cardimg" />
+                    <Card.Img variant="top" src={`data:image/*;base64,${img}`} id="cardimg" />
                 </div>
                 <Card.Body>
                     <div className="overflow-hidden text-center">
