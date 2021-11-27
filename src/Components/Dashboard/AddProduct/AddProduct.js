@@ -19,7 +19,7 @@ const AddProduct = () => {
         formData.append('price', price);
         formData.append('img', img);
         formData.append('description', description);
-        fetch('http://localhost:5000/products', {
+        fetch('https://lit-wildwood-13814.herokuapp.com/products', {
             method: 'POST',
             body: formData
         })
