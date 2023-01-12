@@ -1,6 +1,15 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, sendPasswordResetEmail, updateProfile } from "firebase/auth";
-import { useEffect } from "react";
-import { useState } from "react";
+import {
+    createUserWithEmailAndPassword,
+    getAuth,
+    GoogleAuthProvider,
+    onAuthStateChanged,
+    sendPasswordResetEmail,
+    signInWithEmailAndPassword,
+    signInWithPopup,
+    signOut,
+    updateProfile,
+} from "firebase/auth";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import initilaizationAuth from "../Firebase/Firebase-init";
 initilaizationAuth();
@@ -34,7 +43,7 @@ const UseFirebase = () => {
     }
     // sign up with email password
     function singUp() {
-        setIsLoading(true)
+        setIsLoading(true);
         saveUser(email, name);
         return createUserWithEmailAndPassword(auth, email, password);
     }
@@ -49,24 +58,20 @@ const UseFirebase = () => {
                     "Good job!",
                     "Set Image Your Profile SuccessFull!",
                     "success"
-                )
+                );
             })
             .catch((error) => {
-                Swal.fire(
-                    "Something went wrong!",
-                    `${error.message}`,
-                    "error"
-                )
+                Swal.fire("Something went wrong!", `${error.message}`, "error");
             });
     }
     // Email sign in
     function signInWithEmail() {
-        setIsLoading(true)
+        setIsLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
     // reset password
     function passwordReset() {
-        setIsLoading(true)
+        setIsLoading(true);
         return sendPasswordResetEmail(auth, email);
     }
     // google sign in
@@ -86,29 +91,30 @@ const UseFirebase = () => {
         });
         return () => unsubscribe;
     }, []);
-    // check admin 
+    // check admin
     useEffect(() => {
-        fetch(`https://lit-wildwood-13814.herokuapp.com/users/${user?.email}`)
-            .then(res => res.json())
-            .then(data => setAdmin(data.admin))
-    }, [user?.email])
+        fetch(
+            `https://watch-shop-server-production.up.railway.app/users/${user?.email}`
+        )
+            .then((res) => res.json())
+            .then((data) => setAdmin(data.admin));
+    }, [user?.email]);
     // sign out
     function logOut() {
-        setIsLoading(true)
+        setIsLoading(true);
         return signOut(auth);
     }
 
     const saveUser = (email, displayName) => {
         const user = { email, displayName };
-        fetch('https://lit-wildwood-13814.herokuapp.com/users', {
-            method: 'PUT',
+        fetch("https://watch-shop-server-production.up.railway.app/users", {
+            method: "PUT",
             headers: {
-                'content-type': 'application/json'
+                "content-type": "application/json",
             },
-            body: JSON.stringify(user)
-        })
-            .then()
-    }
+            body: JSON.stringify(user),
+        }).then();
+    };
     return {
         signInWithEmail,
         logOut,
@@ -125,7 +131,7 @@ const UseFirebase = () => {
         setNameAndImage,
         setIsLoading,
         saveUser,
-        admin
-    }
-}
+        admin,
+    };
+};
 export default UseFirebase;
