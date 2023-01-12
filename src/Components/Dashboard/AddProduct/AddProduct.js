@@ -12,13 +12,15 @@ const AddProduct = () => {
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
     const [img, setFile] = useState(null);
+
     const onSubmit = (e) => {
         const formData = new FormData();
         formData.append("title", title);
         formData.append("price", price);
         formData.append("img", img);
         formData.append("description", description);
-        fetch("https://watch-shop-server-production.up.railway.app/products", {
+        // console.log(formData);
+        fetch("http://localhost:5000/products", {
             method: "POST",
             body: formData,
         })
@@ -32,6 +34,7 @@ const AddProduct = () => {
                 Swal.fire("Something went wrong!", `${error.message}`, "error");
             });
     };
+
     return (
         <section>
             <div className="container mt-5 mb-5">
